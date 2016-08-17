@@ -1,4 +1,5 @@
-初始一台服务器   
+初始一台服务器 
+==============  
     yum install -y zsh
     yum install -y git
 	git clone https://github.com/Alex-duzhichao/server.git
