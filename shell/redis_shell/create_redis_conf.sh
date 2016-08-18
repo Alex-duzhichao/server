@@ -47,7 +47,10 @@ mkdir -p /mnt/sdc/redis/$port/ 1>/dev/null 2>&1
 mkdir -p /mnt/sdc/redis/$port/ 1>/dev/null 2>&1
 
 echo -e "$DARKBLUE create redis server config ,port : $port $RESET"
-
+mkdir /etc/redis/redis_$port/conf/
+mkdir /etc/redis/redis_$port/log/
+mkdir /etc/redis/redis_$port/run/
+mkdir /etc/redis/redis_$port/lib/
 cp -fp ~/server/doc/redis.conf /etc/redis/redis_$port/conf/redis.conf
 sed -i "s/port 6379/port $port/g" /etc/redis/redis_$port/conf/redis.conf
 sed -i "s/pidfile \/var\/run\/redis\/redis.pid/pidfile \/etc\/redis\/redis_$port\/run\/redis.pid/g" /etc/redis/redis_$port/conf/redis.conf
