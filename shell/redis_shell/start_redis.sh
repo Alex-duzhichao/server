@@ -21,5 +21,5 @@ fi
 
 echo -e "$DARKBLUE starting redis server on port : $1 ... $RESET"
 
-/usr/local/bin/redis-server /etc/redis/redis_$port/conf/redis.conf
+/usr/bin/redis-server /etc/redis/redis_$port/conf/redis.conf
 
