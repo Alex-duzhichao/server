@@ -62,6 +62,7 @@ if [ $is_master = 1 ]; then
 # sed -i "s/save 900 1/#save 900 1/g" /etc/redis/redis_$port/conf/redis.conf
 # sed -i "s/save 300 10/#save 300 10/g" /etc/redis/redis_$port/conf/redis.conf
 # sed -i "s/save 60 10000/#save 60 10000/g" /etc/redis/redis_$port/conf/redis.conf
+echo "master...."
 else
 sed -i "s/# slaveof <masterip> <masterport>/slaveof $master_ip $master_port/g" /etc/redis/redis_$port/conf/redis.conf
 fi
