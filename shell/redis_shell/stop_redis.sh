@@ -19,7 +19,7 @@ echo -e "$RED USAGE: $0 port. e.g.: $0 6379 $RESET"
 exit 1;
 fi
 
-echo -e "$DARKBLUE stoping codis server on port : $1 ... $RESET"
+echo -e "$DARKBLUE stoping redis server on port : $1 ... $RESET"
 
 redis-cli -p $1 shutdown
 

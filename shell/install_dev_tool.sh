@@ -8,3 +8,4 @@ yum groupinstall -y "Development Tools"
 
 yum install -y redis
 
+find ~/server -name "*.sh" | xargs chmod +x 

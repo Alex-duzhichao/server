@@ -19,7 +19,7 @@ echo -e "$RED USAGE: $0 port. e.g.: $0 6379 $RESET"
 exit 1;
 fi
 
-echo -e "$DARKBLUE starting codis server on port : $1 ... $RESET"
+echo -e "$DARKBLUE starting redis server on port : $1 ... $RESET"
 
-/usr/local/go/goPath/src/github.com/CodisLabs/codis/bin/codis-server /mnt/sdc/codis_conf/codis_$1.conf
+/usr/local/bin/redis-server /etc/redis/redis_$port/conf/redis.conf
 

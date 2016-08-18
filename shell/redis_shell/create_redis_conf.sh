@@ -43,22 +43,22 @@ case "${1}" in
 	;;
 	esac
 
-mkdir -p /mnt/sdc/codis/$port/ 1>/dev/null 2>&1
-mkdir -p /mnt/sdc/codis/$port/ 1>/dev/null 2>&1
+mkdir -p /mnt/sdc/redis/$port/ 1>/dev/null 2>&1
+mkdir -p /mnt/sdc/redis/$port/ 1>/dev/null 2>&1
 
-echo -e "$DARKBLUE create codis server config ,port : $port $RESET"
+echo -e "$DARKBLUE create redis server config ,port : $port $RESET"
 
-cp -fp codis.conf codis_$port.conf
-sed -i "s/pidfile \/mnt\/sdc\/codis\/codis.pid/pidfile \/mnt\/sdc\/codis\/$port\/codis_$port.pid/g" codis_$port.conf
-sed -i "s/port 6379/port $port/g" codis_$port.conf
-sed -i "s/logfile \"\/mnt\/sdc\/codis\/codis.log\"/logfile \"\/mnt\/sdc\/codis\/$port\/codis_$port.log\"/g" codis_$port.conf
-sed -i "s/dbfilename dump.rdb/dbfilename dump_$port.rdb/g" codis_$port.conf
-sed -i "s/dir \/mnt\/sdc/dir \/mnt\/sdc\/codis\/$port\//g" codis_$port.conf
+cp -fp ~/server/doc/redis.conf /etc/redis/redis_$port/conf/redis.conf
+sed -i "s/port 6379/port $port/g" /etc/redis/redis_$port/conf/redis.conf
+sed -i "s/pidfile \/var\/run\/redis\/redis.pid/pidfile \/etc\/redis\/redis_$port\/run\/redis.pid/g" /etc/redis/redis_$port/conf/redis.conf
+sed -i "s/logfile \/var\/log\/redis\/redis.log/logfile \/etc\/redis\/redis_$port\/log\/redis.log/g" /etc/redis/redis_$port/conf/redis.conf
+#sed -i "s/dbfilename dump.rdb/dbfilename dump_$port.rdb/g" /etc/redis/redis_$port/conf/redis.conf
+sed -i "s/dir \/var\/lib\/redis\//dir \/etc\/redis\/redis_$port\/lib\//g" /etc/redis/redis_$port/conf/redis.conf
 
 if [ $is_master = 1 ]; then
-sed -i "s/save 900 1/#save 900 1/g" codis_$port.conf
-sed -i "s/save 300 10/#save 300 10/g" codis_$port.conf
-sed -i "s/save 60 10000/#save 60 10000/g" codis_$port.conf
+# sed -i "s/save 900 1/#save 900 1/g" /etc/redis/redis_$port/conf/redis.conf
+# sed -i "s/save 300 10/#save 300 10/g" /etc/redis/redis_$port/conf/redis.conf
+# sed -i "s/save 60 10000/#save 60 10000/g" /etc/redis/redis_$port/conf/redis.conf
 else
-sed -i "s/# slaveof <masterip> <masterport>/slaveof $master_ip $master_port/g" codis_$port.conf
+sed -i "s/# slaveof <masterip> <masterport>/slaveof $master_ip $master_port/g" /etc/redis/redis_$port/conf/redis.conf
 fi

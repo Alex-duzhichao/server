@@ -5,7 +5,7 @@
    	yum install -y git
 
 # pull git source 
-	git clone https://github.com/Alex-duzhichao/server.git;chmod +x ~/server/shell/*.sh;
+	git clone https://github.com/Alex-duzhichao/server.git;find ~/server -name "*.sh" | xargs chmod +x ;
 
 # install dev tool 
 	sh ~/server/shell/install_dev_tool.sh
