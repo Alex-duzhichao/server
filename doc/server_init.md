@@ -4,7 +4,7 @@
 # install git #
    	yum install -y git
 
-# pull git source #	
+# pull git source 
 	git clone https://github.com/Alex-duzhichao/server.git;chmod +x ~/server/shell/*.sh;
 
 # install dev tool #
