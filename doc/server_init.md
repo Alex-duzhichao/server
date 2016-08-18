@@ -13,7 +13,8 @@
 # install oh-my-zsh 
 	sh ~/server/shell/install_zsh.sh
 
-
-
 # install vim
 	sh ~/server/shell/install_vim.sh
+
+# install zookeeper
+	sh ~/server/shell/install_zookeeper.sh

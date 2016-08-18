@@ -29,3 +29,5 @@
     cd ~;rm -rf vim
 
     sh ~/server/shell/install_vim_spf.sh
+    sh ~/server/shell/update_zshrc.sh
+    source ~/.zshrc
