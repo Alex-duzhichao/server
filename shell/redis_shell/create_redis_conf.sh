@@ -52,6 +52,7 @@ mkdir -p /etc/redis/redis_$port/log/
 mkdir -p /etc/redis/redis_$port/run/
 mkdir -p /etc/redis/redis_$port/lib/
 cp -fp ~/server/doc/redis.conf /etc/redis/redis_$port/conf/redis.conf
+sed -i "s/daemonize no/daemonize yes/g" /etc/redis/redis_$port/conf/redis.conf
 sed -i "s/port 6379/port $port/g" /etc/redis/redis_$port/conf/redis.conf
 sed -i "s/pidfile \/var\/run\/redis\/redis.pid/pidfile \/etc\/redis\/redis_$port\/run\/redis.pid/g" /etc/redis/redis_$port/conf/redis.conf
 sed -i "s/logfile \/var\/log\/redis\/redis.log/logfile \/etc\/redis\/redis_$port\/log\/redis.log/g" /etc/redis/redis_$port/conf/redis.conf
