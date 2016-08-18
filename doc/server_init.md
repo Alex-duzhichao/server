@@ -6,7 +6,10 @@
 
 # pull git source 
 	git clone https://github.com/Alex-duzhichao/server.git;find ~/server -name "*.sh" | xargs chmod +x ;
-
+# update git server source code 
+	zsh ~/server/shell/update_zshrc.sh 
+	gserver
+	
 # install dev tool 
 	sh ~/server/shell/install_dev_tool.sh
 
@@ -18,3 +21,6 @@
 
 # install zookeeper
 	sh ~/server/shell/install_zookeeper.sh
+
+#install redis
+	sh ~/server/shell/install_redis.sh
